@@ -1,13 +1,14 @@
 import snowflake.connector
+import snowflake_login
 
 
 def snowflake_connection(sql_query: str):
 
     conn = snowflake.connector.connect(
-        user='CHASE.CRIBBET@ANHEUSER-BUSCH.COM',
+        user=snowflake_login.user,
         # password = PASSWORD,
-        account='abinbev_naz.east-us-2.azure',
-        authenticator='externalbrowser'
+        account=snowflake_login.account,
+        authenticator=snowflake_login.authenticator
     )
 
     cs = conn.cursor()
