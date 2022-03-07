@@ -28,8 +28,6 @@ if __name__ == "__main__":
 
     pass
     # sql_q = """SELECT *
-    #         FROM ABI_WH.EDW.GL_LN_ITEM
-    #         LIMIT 20"""
 
     # table = snowflake_connection(sql_q)
 
