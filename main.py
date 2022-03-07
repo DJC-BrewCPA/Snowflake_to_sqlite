@@ -5,9 +5,7 @@ import sqlite_connect
 import snowflake_queries
 
 
-sql_query = """SELECT *
-            FROM ABI_WH.EDW.GL_LN_ITEM
-            LIMIT 20"""
+sql_query = snowflake_queries.region_1
 
 sqlite_db = r"C:\Users\Y893263\sqlite\Regions_db\Region_1.db"
 
