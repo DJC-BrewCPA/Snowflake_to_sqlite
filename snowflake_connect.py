@@ -26,14 +26,17 @@ def snowflake_connection(sql_query: str):
 
 if __name__ == "__main__":
 
-    sql_q = """SELECT"""
+    pass
+    # sql_q = """SELECT *
+    #         FROM ABI_WH.EDW.GL_LN_ITEM
+    #         LIMIT 20"""
 
-    table = snowflake_connection(sql_q)
+    # table = snowflake_connection(sql_q)
 
-    print(table.head(20))
-    print(table.columns)
+    # print(table.head(20))
+    # print(table.columns)
 
-    with open(r'c:\users\Y893263\Desktop\cols.txt', "w") as textfile:
-        textfile.truncate(0)
-        for ele in table.columns:
-            textfile.write(ele + "\n")
+    # with open(r'c:\users\Y893263\Desktop\cols.txt', "w") as textfile:
+    #     textfile.truncate(0)
+    #     for ele in table.columns:
+    #         textfile.write(ele + "\n")
