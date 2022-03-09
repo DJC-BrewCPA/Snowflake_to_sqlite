@@ -5,25 +5,35 @@ import sqlite_connect
 import snowflake_queries
 
 
-sql_query = snowflake_queries.region_1
 
-sqlite_db = r"C:\Users\Y893263\sqlite\Regions_db\Region_1.db"
 
-if __name__=='__main__':
-    
-    ## get data from Snowflake
-    df = snowflake_connect.snowflake_connection(sql_query=sql_query)
+def main():
 
-    ## return sqlite connection
-    conn = sqlite_connect.create_connection(db_file=sqlite_db)
+    try: 
+        ## get data from Snowflake
+        df = snowflake_connect.snowflake_connection(sql_query=sql_query)
 
-    ## store df from SF to sqlite
-    df.to_sql(name='test',
-              con=conn,
-              if_exists='replace',
+        ## return sqlite connection
+        conn = sqlite_connect.create_connection(db_file=sqlite_db)
+
+        ## store df from SF to sqlite
+        df.to_sql(name='test',
+                con=conn,
+                if_exists='replace',
               index_label='id')
 
-    # close sqlite conn
-    conn.close()
+    finally:
+        # close sqlite conn
+        conn.close()
+
+
+if __name__=='__main__':
+
+    sql_query = snowflake_queries.sales_accrual_q
+    sqlite_db = r"C:\Users\Y893263\sqlite\Regions_db\Region_1.db"
+
+    _ = main()
+
+   
     
 
