@@ -5,9 +5,9 @@ import sqlite_connect
 import snowflake_queries
 
 
+"""This currently works"""
 
-
-def main():
+def main(table_name):
 
     try: 
         ## get data from Snowflake
@@ -17,10 +17,10 @@ def main():
         conn = sqlite_connect.create_connection(db_file=sqlite_db)
 
         ## store df from SF to sqlite
-        df.to_sql(name='test',
+        df.to_sql(name=table_name,
                 con=conn,
                 if_exists='replace',
-              index_label='id')
+                index_label='id')
 
     finally:
         # close sqlite conn
@@ -29,8 +29,8 @@ def main():
 
 if __name__=='__main__':
 
-    sql_query = snowflake_queries.sales_accrual_q
-    sqlite_db = r"C:\Users\Y893263\sqlite\Regions_db\Region_1.db"
+    sql_query = snowflake_queries.sales_package_ref
+    sqlite_db = r"C:\Users\Y893263\sqlite\Sales_mapping_keys\cost_elements_map.db"
 
     _ = main()
 
