@@ -7,7 +7,7 @@ import snowflake_queries
 
 """This currently works"""
 
-def main(table_name):
+def main(table_name: str):
 
     try: 
         ## get data from Snowflake
@@ -32,7 +32,7 @@ if __name__=='__main__':
     sql_query = snowflake_queries.sales_package_ref
     sqlite_db = r"C:\Users\Y893263\sqlite\Sales_mapping_keys\cost_elements_map.db"
 
-    _ = main()
+    _ = main('cost_elements_map')
 
    
     

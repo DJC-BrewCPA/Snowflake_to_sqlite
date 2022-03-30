@@ -17,7 +17,7 @@ def snowflake_connection(sql_query: str):
         table = cs.fetch_pandas_all()
     finally:
         cs.close()
-    conn.close()
+        conn.close()
 
     return table
 
